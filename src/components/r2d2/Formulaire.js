@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { addMessageAction } from '../../redux/r2d2/message.action';
 import SelectComponent from '../commons/SelectComponent';
+import MonComposant from './MonComposant';
+import MonComposantContainer from './MonComposantContainer';
 
-const Formulaire = ({numeros=[]}) => {
+const Formulaire = ({numeros=[], enregistrerDansStore}) => {
 
     const [numeroChoisi, setNumeroChoisi] = useState(1);
     const [organismesChoisis, setOrganismesChoisis] = useState([]);
     const [email, setEmail] = useState("a.b@insee.fr");
+    const [messageChoisi, setMessageChoisi] = useState("Message initial");
 
     const changerOrganisme = options => setOrganismesChoisis(options);
     
@@ -25,6 +30,11 @@ const Formulaire = ({numeros=[]}) => {
             <Form.Control type="email" placeholder="name@example.com" onChange={e => setEmail(e.target.value)} value={email}/>
         </Form.Group>
 
+        <Form.Group controlId="message">
+            <Form.Label>Message</Form.Label>
+            <Form.Control type="input" onChange={e => setMessageChoisi(e.target.value)} value={messageChoisi}/>
+        </Form.Group>
+
         <SelectComponent label="Toto" id="numOp1" onChange={setNumeroChoisi} value={numeroChoisi} options={numeros}/>
 
         <SelectComponent label="Organisme concerné" id="numOp2" onChange={changerOrganisme} value={organismesChoisis} 
@@ -33,11 +43,17 @@ const Formulaire = ({numeros=[]}) => {
             <Form.File id="exampleFormControlFile1" label="Fichier à envoyer" />
         </Form.Group>
 
+        <MonComposant message={messageChoisi}/>
+        <MonComposantContainer/>
         <Form.Row>
             <Button type="submit">Enregistrer</Button>
+            <Button onClick={()=> enregistrerDansStore(messageChoisi)}>Valider</Button>
         </Form.Row>
 
     </Form>
 }
 
-export default Formulaire;
+const mapDispatchToProps = dispatch => ({
+    enregistrerDansStore: messageChoisi => dispatch(addMessageAction(messageChoisi))
+}) 
+export default connect(null, mapDispatchToProps)(Formulaire);
