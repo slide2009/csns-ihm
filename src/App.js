@@ -1,12 +1,11 @@
-import React from 'react';
 import { range } from 'lodash';
-import Formulaire from './components/r2d2/Formulaire';
+import React from 'react';
+import FormulaireContainer from './components/r2d2/FormulaireContainer';
 import './lib/css/bootstrap.min.css';
 
 const App = () => {
 return <>
-<Formulaire numeros={range(1,10)}/>
+<FormulaireContainer numeros={range(1,10)}/>
 </>}
 
 export default App;
-    

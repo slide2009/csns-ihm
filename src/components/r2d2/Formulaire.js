@@ -53,7 +53,4 @@ const Formulaire = ({numeros=[], enregistrerDansStore}) => {
     </Form>
 }
 
-const mapDispatchToProps = dispatch => ({
-    enregistrerDansStore: messageChoisi => dispatch(addMessageAction(messageChoisi))
-}) 
-export default connect(null, mapDispatchToProps)(Formulaire);
+export default Formulaire;
