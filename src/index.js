@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { compose, createStore } from 'redux';
-import messageReducer from './redux/r2d2/message.reducer';
 import { Provider } from 'react-redux';
+import messageReducer from './components/r2d2/message.reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(messageReducer, composeEnhancers());

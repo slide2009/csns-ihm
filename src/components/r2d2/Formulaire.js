@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { addMessageAction } from '../../redux/r2d2/message.action';
+import { addMessageAction } from './message.action';
 import SelectComponent from '../commons/SelectComponent';
 import MonComposant from './MonComposant';
 import MonComposantContainer from './MonComposantContainer';
