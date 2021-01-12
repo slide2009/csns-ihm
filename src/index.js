@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { compose, createStore } from 'redux';
+import App from './App';
 import messageReducer from './components/r2d2/message.reducer';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(messageReducer, composeEnhancers());
+const store = createStore(messageReducer, composeEnhancers());
 
 ReactDOM.render(
   <Provider store={store}>
-
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );
