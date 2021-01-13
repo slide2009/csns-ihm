@@ -4,16 +4,14 @@ import React from 'react'
 const Tableau = ({data}) => {
 
     const colonnes = [
-        
-        {name: 'Nom',
+        {name: 'userId',
         options: {
             customBodyRender: (value, tableMeta, updateValue) => {
-                console.log(tableMeta)
-                return `${value.toUpperCase()} -  ${tableMeta.rowData[1]}`;
+                return value;
             }
         }}, 
         
-        'classe'
+        'title'
     ]
     return <MUIDataTable columns ={colonnes} data={data}/>
 }
