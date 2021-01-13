@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import Tableau from '../r2d2/Tableau'
+import FormulaireFormik from './FormulaireFormik';
 const AccueilDossier = () => {
 
     const [data, setData] = useState([]);
@@ -12,6 +13,7 @@ const AccueilDossier = () => {
 
     return <>
         <div>Accueil du menu dossier</div>
+        <FormulaireFormik/>
         <Button onClick={getData}>Charger</Button>
         <Tableau data={data} />
     </>
